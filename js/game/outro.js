@@ -19,37 +19,37 @@ function Start_Outro(){
 	///////////////////////////////
 
 	if($.breaking_up_soon){
-		N("And then we broke up three days later.");
+		N("Y entonces cortamos tres d&iacute;as m&aacute;s tarde.");
 	}else{
-		N("And then we broke up three weeks later.");
+		N("Y entonces cortamos tres semanas m&aacute;s tarde.");
 	}
 
 	// Weave - intro
 	if($.main_menu_convo_1==1){
 		p(". . .");
-		N("Told you this didn't end in gay unicorns.");
+		N("Te dije que esto no terminaba con unicornios gays.");
 	}else if($.main_menu_convo_1==3){
 		p(". . .");
-		N("Told you. Not blood, but tears.");
+		N("Sin sangre, sino l&aacute;grimas.");
 	}else if($.main_menu_convo_2==1){
 		p(". . .");
-		N("You were right. I'm a bit of a downer.");
+		N("Ten&iacute;as raz&oacute;n. Soy un poco negativo.");
 	}
 
 	Choose({
-		"MY FEELS.":function(message){
+		"VOY A LLORAR.":function(message){
 			p(message);
-			N("Let the feels flow, my friend.");
+			N("No te reprimas, colegui.");
 			Closure();
 		},
-		"Aw, come on, that's cold dude.":function(message){
+		"Jo, qu&eacute; pena, t&iacute;o.":function(message){
 			p(message);
-			N("I don't deny that.");
+			N("No lo niego.");
 			Closure();
 		},
-		"Can't say I didn't see that coming...":function(message){
+		"No puedo decir que no lo ve&iacute;a venir...":function(message){
 			p(message);
-			N("Yeah... Jack and I saw it coming, too.");
+			N("Ya... Nosotros tambi&eacute;n lo ve&iacute;amos venir.");
 			Closure();
 		}
 	});
@@ -62,50 +62,50 @@ function Closure(){
 	Show("nicky","coffee_nicky_drink");
 	Show("cup",null);
 
-	p("Ugh.");
-	p("I feel gross just using the same-coloured dialogue balloons as the Father character.");
+	p("Puaj.");
+	p("Me da asco usar el mismo color de bocadillo que el personaje del padre.");
 
 	Show("nicky","coffee_nicky_still");
 	Show("cup","cup_steam");
 
-	N("Which reminds me. Many of the characters have been swapped around.");
-	N("All names have been changed, except mine.");
-	N("I left my little brother out entirely, because he's innocent.");
-	N("And I put my Father back in, even though he'd left the family long before 2010.");
+	N("Eso me recuerda que muchos de los personajes se han cambiado.");
+	N("Todos los nombres se han modificado, menos el m&iacute;o.");
+	N("No he incluido a mi hermano peque&ntilde;o porque no tiene culpa de nada.");
+	N("Y he metido a mi padre, a pesar de haber abandonado la familia mucho antes de 2010.");
 
 	if($.main_menu_convo_2==3){
-		N("Like you said, this 'true' game is full of lies.");
+		N("Como hab&iacute;as dicho, este juego 'real' est&aacute; lleno de mentiras.");
 	}
 	
-	p("You could have at least given me a different colour.");
-	N("It's been four years since that night...");
-	N("What do you think happened afterwards?");
+	p("Por lo menos podr&iacute;as haberme puesto un color distinto.");
+	N("Han pasado cuatro a&ntilde;os desde esa noche...");
+	N("&iquest;Qu&eacute; crees que pas&oacute; despu&eacute;s?");
 
 	if($.main_menu_convo_2==2){
-		N("Don't worry. Like we said in the Main Menu, there are no right answers.");
+		N("No te preocupes. Como dijimos en el men&uacute; principal, no hay respuestas correctas.");
 	}
 
 	$.coming_out_stories_left = 3;
 	$.order_of_stories = [];
 
 	Choose({
-		"Dude, I dunno, just freaking tell me.": function(message){
+		"Ni idea, t&iacute;o, dilo de una maldita vez.": function(message){
 			p(message);
-			N("Alright, I will tell you what happened.");
-			N("...and what happened, and what happened.");
-			p("What.");
+			N("Vale, te voy a contar lo que pas&oacute;.");
+			N("...y lo que pas&oacute; y lo que que pas&oacute;.");
+			p("Qu&eacute;.");
 			Closure_Story();
 		},
-		"Let me guess, It Gets Better&trade;?": function(message){
+		"D&eacute;jame adivinar, &iquest;It Gets Better&trade;, 'todo mejora'?": function(message){
 			p(message);
-			N("Yes, actually! In all three versions of what happened.");
-			p("What.");
+			N("&iexcl;La verdad es que s&iacute;! En las tres versiones de lo que pas&oacute;.");
+			p("Qu&eacute;.");
 			Closure_Story();
 		},
-		"Flowers and rainbows and gay unicorns?": function(message){
+		"&iquest;Flores y arco&iacute;ris y unicornios gay?": function(message){
 			p(message);
-			N("Yes, actually! At least, in one of my three versions of what happened.");
-			p("Of course.");
+			N("&iexcl;La verdad es que s&iacute;! Al menos, en una de las tres versiones de lo que pas&oacute;.");
+			p("Claro.");
 			Closure_Story();
 		}
 	});
@@ -115,12 +115,12 @@ function Closure(){
 function Closure_Story(){
 
 	if($.coming_out_stories_left==3){
-		N("Which post-coming-out story do you want to hear first?");
-		N("Don't worry, you'll get to hear all three of them.");
+		N("&iquest;Qu&eacute; historia despu&eacute;s de mi salida del armario quieres escuchar?");
+		N("No te preocupes, vas a poder escucharlas todas.");
 	}else if($.coming_out_stories_left==2){
-		N("Now, which version do you want to hear next?");
+		N("Y ahora, &iquest;qu&eacute; versi&oacute;n quieres escuchar?");
 	}else if($.coming_out_stories_left==1){
-		N("Finally, let's hear the last story...");
+		N("Por &uacute;ltimo, vamos a escuchar la historia que queda...");
 	}else{
 		Finale_1();
 		return;
@@ -129,9 +129,9 @@ function Closure_Story(){
 	$.coming_out_stories_left -= 1;
 
 	var options = [];
-	if(!$.told_story_lie) options["The Lie."]=Tell_Me_A_Lie;
-	if(!$.told_story_truth) options["The Truth."]=Tell_Me_A_Truth;
-	if(!$.told_story_half_truth) options["The Half-Truth."]=Tell_Me_A_Half_Truth; 
+	if(!$.told_story_lie) options["La Mentira."]=Tell_Me_A_Lie;
+	if(!$.told_story_truth) options["La Verdad."]=Tell_Me_A_Truth;
+	if(!$.told_story_half_truth) options["La Media Verdad."]=Tell_Me_A_Half_Truth; 
 	Choose(options);
 
 }
@@ -139,10 +139,10 @@ function Closure_Story(){
 function Is_Last_Story(){
 	if($.coming_out_stories_left==0){
 		if($.asked_about && $.asked_credits){
-			p("Again, with the making the only option a clickable option...");
+			p("Otra vez me haces elegir cuando solo queda una &uacute;nica opci&oacute;n...");
 		}else{
-			p("Why did you make that a clickable option, when it was the only option left.");
-			N("No idea. Moving on.");
+			p("&iquest;Por qu&eacute; has hecho que se pueda elegir si era la &uacute;nica opci&oacute;n que quedaba?");
+			N("Ni idea. Sigamos.");
 		}
 	}
 }
@@ -161,67 +161,67 @@ function Tell_Me_A_Lie(message){
 	Show("nicky","coffee_nicky_still");
 	Show("cup","cup_steam");
 
-	N("Very well.");
+	N("Estupendo.");
 	Is_Last_Story();
 
-	N("I ran away from home, with nothing more than a luggage bag full of edible underwear.");
+	N("Hui de casa con solo una maleta llena de ropa interior comestible.");
 	if($.im_a_poet){
-		N("I roamed the Great White North. Supporting myself by writing amateur poetry for strangers.");
+		N("Vagu&eacute; por Canad&aacute;. Me ganaba la vida escribiendo poes&iacute;a <i>amateur</i> a desconocidos.");
 	}else{
-		N("I roamed the Great White North. Supporting myself by making not-fun web games.");
+		N("Vagu&eacute; por Canad&aacute;. Me ganaba la vida creando juegos de internet que no eran divertidos.");
 	}
-	N("I ate flowers. Followed the rainbows. And befriended a homosexual unicorn.");
+	N("Com&iacute; flores, segu&iacute; los arco&iacute;ris y me hice amigo de un unicornio homosexual.");
 	p(". . .");
-	N("Eventually I made it to Alaska, where I met an adult bisexual couple named Bonnie & Clyde.");
-	N("Bonnie was a mid-30s cougar, and Clyde was an early-40s manther.");
+	N("Finalmente llegu&eacute; a Alaska, y all&iacute; conoc&iacute; a una pareja de adultos bisexuales que se llamaban Bonnie y Clyde.");
+	N("Bonnie era una <i>sugar mommy</i> de unos 30 y pico a&ntilde;os, y Clyde un <i>sugar daddy</i> de unos 40 y pocos.");
 
 	// FAMILY WITH BENEFITS
 	// Weave in -- top or bottom
 
 	Choose({
-		"I guess edible undies are both food & clothing.": function(message){
+		"&iquest;La ropa interior comestible es comida y ropa?": function(message){
 			$.outro_convo_lie = 1;
 			p(message);
-			N("And thanks to my flexibility, the luggage bag doubles as housing!");
+			N("&iexcl;Y gracias a mi flexibilidad, la maleta tambi&eacute;n serv&iacute;a como vivienda!");
 			Tell_Me_A_Lie_2();
 		},
-		"This story is a fractal of fracked up.": function(message){
+		"Esta historia est&aacute; jodidamente jodida.": function(message){
 			$.outro_convo_lie = 2;
 			p(message);
-			N("MY STORY. MY RULES.");
+			N("MI HISTORIA, MIS NORMAS.");
 			Tell_Me_A_Lie_2();
 		},
-		"...\"manther\".": function(message){
+		"...\"sugars\".": function(message){
 			$.outro_convo_lie = 3;
 			p(message);
-			N("Also known as a faguar.");
+			N("Tambi&eacute;n conocidos como asaltacunas.");
 			Tell_Me_A_Lie_2();
 		}
 	});
 }
 function Tell_Me_A_Lie_2(){
 	
-	N("They took me in as their foster child, and I was their full-time boytoy.");
+	N("Me adoptaron y me convert&iacute; en su yogur&iacute;n a tiempo completo.");
 
 	if($.outro_convo_lie==1){
-		p("...Thanks again to your, uh, flexibility.");
+		p("...De nuevo, gracias a... bueno... tu flexibilidad.");
 	}
 
 	switch($.top_or_bottom){
-		case "top": N("As we know, I like having my partners be 'the woman' of a relationship."); break;
-		case "bottom": N("As we know, I'm usually 'the woman' of a relationship."); break;
-		case "versatile": N("As we know, I like taking turns at being 'the woman' of a relationship."); break;
+		case "top": N("Como ya sabemos, me gusta que mis parejas sean 'la mujer' de la relaci&oacute;n."); break;
+		case "bottom": N("Como ya sabemos, normalmente soy 'la mujer' de la relaci&oacute;n."); break;
+		case "versatile": N("Como ya sabemos, me gusta ir turn&aacute;ndome el papel de 'la mujer' de la relaci&oacute;n."); break;
 	}
 
-	N("They raised me, showed me love, and I grew up to be a productive member of society.");
+	N("Me criaron, me quisieron, y me convert&iacute; en un eje productivo de la sociedad.");
 
 	switch($.outro_convo_lie){
-		case 2: p("And when you zoom in on this fractal, there's MORE fracked-up-ness."); break;
-		case 3: p("...\"MANTHER\"."); break;
+		case 2: p("Y cuanto m&aacute;s la miras de cerca, M&Aacute;S <i>jodidura</i> hay en lo jodidamente jodido."); break;
+		case 3: p("...\"SUGARS\"."); break;
 	}
 
-	N("They were my new family.");
-	N("Family... with benefits.");
+	N("Eran mi nueva familia.");
+	N("Una familia... con derecho a roce.");
 
 	p(". . .");
 
@@ -245,42 +245,42 @@ function Tell_Me_A_Truth(message){
 	Show("nicky","coffee_nicky_still");
 	Show("cup","cup_steam");
 
-	N("Here it goes.");
+	N("Aqu&iacute; va.");
 	Is_Last_Story();
 
-	N("I took Jack's advice and parodied Inception in my 'odd web game', Reimagine :The Game:.");
+	N("Segu&iacute; el consejo de Jack y parodi&eacute; <i>Origen</i> en mi juego web raruno 'Reimagine: The Game'.");
 	switch($.inception_answer){
-		case "awake": N("Didn't say that Cobbs was awake in the ending, though."); break;
-		case "dream": N("Didn't say that the movie was all just a dream, though."); break;
-		case "neither": N("Still think it doesn't matter if Cobbs was still dreaming."); break;
+		case "awake": N("Sin embargo, no dije que Cobb estaba despierto al final."); break;
+		case "dream": N("Sin embargo, no dije que en la pel&iacute;cula era todo un sue&ntilde;o."); break;
+		case "neither": N("Todav&iacute;a sigo pensando que no importa si Cobb segu&iacute;a so&ntilde;ando."); break;
 	}
-	N("Reimagine :The Game: got internet-famous-ish! A good portfolio piece.");
-	N("A few months later, I landed an internship at Electronic Arts in the Bay Area. Far away from my family in Canada.");
+	N("&iexcl;Reimagine: The Game se hizo famosillo en internet! Muy &uacute;til para ponerlo en el portfolio.");
+	N("Unos meses m&aacute;s tarde, consegu&iacute; unas pr&aacute;cticas en Electronic Arts en la Bay Area de San Francisco. Muy lejos de mi familia en Canad&aacute;.");
 
 	Choose({
-		"Eww, Electronic Arts...?": function(message){
+		"&iexcl;Puaj!, &iquest;Electronic Arts...?": function(message){
 			$.outro_convo_truth = 3;
 			p(message);
 
-			N("Yeah, I know, I know.");
-			N("I'm now repenting for my sins by making artsy-fartsy indie games like this one.");
-			p("Repent harder, dammit.");
+			N("Ya, lo s&eacute;, lo s&eacute;.");
+			N("Ahora hago juegos indie pretenciosos como este para pagar por mis pecados.");
+			p("Paga con m&aacute;s ganas, joder.");
 			Tell_Me_A_Truth_2();
 		},
-		"And the Bay Area is very LGBT friendly.": function(message){
+		"Y la Bay Area es muy LGBT <i>friendly</i>.": function(message){
 			$.outro_convo_truth = 2;
 			p(message);
 
-			N("That's why they call it the Gay Area!");
-			p("Uh.. nobody calls it that.");
+			N("&iexcl;Por eso la llaman la Gay Area!");
+			p("Eh... nadie la llama as&iacute;.");
 			Tell_Me_A_Truth_2();
 		},
-		"Oh, I love EA! They make The Sims, right?": function(message){
+		"&iexcl;Me encanta EA! Han hecho Los Sims, &iquest;no?": function(message){
 			$.outro_convo_truth = 1;
 			p(message);
 
-			N("Yup! I didn't work on those, though. Our team was making a web game version of--");
-			N("[LITERALLY CANNOT DISCLOSE]");
+			N("&iexcl;S&iacute;! Pero no trabaj&eacute; en ese proyecto. Nuestro equipo hac&iacute;a una versi&oacute;n web de...");
+			N("[LO SIENTO, COLEGUI, ES CONFIDENCIAL]");
 			p("Oh.");
 			Tell_Me_A_Truth_2();
 		}
@@ -289,17 +289,17 @@ function Tell_Me_A_Truth(message){
 }
 function Tell_Me_A_Truth_2(){
 	
-	N("After EA, I went on to go indie.");
-	N("But I stayed in touch with friends at EA, and stayed in the Bay Area.");
+	N("Despu&eacute;s de EA, segu&iacute; haciendo juegos indie.");
+	N("Pero segu&iacute; en contacto con mis amigos de EA y me qued&eacute; en la Bay Area.");
 
-	N("My technical skills grew.");
-	N("My social skills grew.");
-	N("And here... I'm finally starting to figure out my identity.");
+	N("Mejor&eacute; mis conocimientos t&eacute;cnicos.");
+	N("Mejor&eacute; mis habilidades sociales.");
+	N("Y aqu&iacute;... por fin estoy empezando a saber cu&aacute;l es mi identidad.");
 
 	switch($.outro_convo_truth){
-		case 1: p("Well, I'm looking forward to Literally Cannot Disclose: The Game."); break;
-		case 2: p("But seriously, no one calls it the Gay Area."); break;
-		case 3: p("But seriously, ew. Electronic Arts."); break;
+		case 1: p("Me muero por jugar 'Lo siento, colegui, es confidencial: el videojuego'."); break;
+		case 2: p("Pero en serio, nadie la llama la Gay Area."); break;
+		case 3: p("Pero en serio, puaj, Electronic Arts."); break;
 	}
 
 	Closure_Story();
@@ -321,40 +321,40 @@ function Tell_Me_A_Half_Truth(message){
 	Show("nicky","coffee_nicky_still");
 	Show("cup","cup_steam");
 
-	N("As you wish.");
+	N("Vale.");
 	Is_Last_Story();
 
-	N("Claire, in an ironic twist of fate, was also bisexual.");
-	N("We told each other about it during a "+$.studying_subject+" study session.");
+	N("Claire, en un ir&oacute;nico giro del destino, tambi&eacute;n era bisexual.");
+	N("Nos lo confesamos mutuamente un d&iacute;a que estudi&aacute;bamos "+$.studying_subject+".");
 
-	p("What a twist!");
+	p("&iexcl;Y qu&eacute; giro!");
 
-	N("Claire was insecure about her sexual orientation, like me.");
-	N("We were both somewhat inexperienced. Claire's only been with women, and I've only been with Jack.");
+	N("Claire no estaba segura de su orientaci&oacute;n sexual, al igual que yo.");
+	N("Ninguno ten&iacute;a mucha experiencia. Claire solo hab&iacute;a estado con mujeres y yo solo hab&iacute;a estado con Jack.");
 
 	// CLAIRE AND I HELPED EACH OTHER EXPLORE OURSELVES, LESS GUILT, MORE EXPERIENCE.
 	// Weave in -- studying what
 
 	Choose({
-		"A mirror version of you, but reversed...": function(message){
+		"Como si te vieras al espejo, pero al rev&eacute;s...": function(message){
 			$.outro_convo_half_truth = 1;
 			p(message);
-			N("Well, uh, all mirror images are reversed.");
-			p("You know what I mean.");
-			N("But yeah, Claire and I shared our experiences with one another.");
+			N("Bueno, todo lo que se ve en el espejo est&aacute; al rev&eacute;s.");
+			p("Me has entendido.");
+			N("Pero s&iacute;, Claire y yo nos contamos nuestras experiencias.");
 			Tell_Me_A_Half_Truth_2();
 		},
-		"So, you taught each other the other side?": function(message){
+		"&iquest;Os ense&ntilde;&aacute;steis el uno al otro?": function(message){
 			$.outro_convo_half_truth = 3;
 			p(message);
 			Tell_Me_A_Half_Truth_2();
 		},
-		"Did you end up having sexytimes together?": function(message){
+		"&iquest;Hicisteis cositas?": function(message){
 			$.outro_convo_half_truth = 2;
 			p(message);
-			N("No. She's like a sister to me. A sister I would not have sex with.");
-			p("You... did not need to clarify that.");
-			N("But yeah, Claire and I shared our experiences with one another.");
+			N("No. Era como una hermana. Una hermana con lo que no tendr&iacute;a sexo.");
+			p("No... no era necesario que lo aclararas.");
+			N("Pero s&iacute; que Claire y yo nos contamos nuestras experiencias.");
 			Tell_Me_A_Half_Truth_2();
 		}
 	});
@@ -362,21 +362,21 @@ function Tell_Me_A_Half_Truth(message){
 }
 function Tell_Me_A_Half_Truth_2(){
 	
-	N("And exchanged tips!");
-	N("Like... do a 'come hither' motion with your fingers, or, rub the head against the roof of your mouth.");
-	p("T.M.I, dude...");
+	N("&iexcl;E intercambiamos consejos!");
+	N("Por ejemplo... hacer un movimiento de 'ven' con los dedos o frotar la punta contra el cielo de la boca.");
+	p("No era necesario dar tanta informaci&oacute;n, t&iacute;o...");
 
 	if($.changing_schools || !$.father_oblivious){
-		N("I did move to her school, in the end.");
+		N("Al final me cambi&eacute; a su instituto.");
 	}
 
-	N("We were best friends. We still are! We've now both moved to the US, far away from our hateful families.");
-	N("Together, we helped each other overcome our insecurities, and discover who we were...");
-	N("Proud bisexual sluts.");
+	N("&Eacute;ramos mejores amigos. &iexcl;Todav&iacute;a lo somos! Ambos vivimos ahora en Estados Unidos, lejos de nuestras horribles familias.");
+	N("Juntos, nos ayudamos a vencer nuestras inseguridades y a descubrir qui&eacute;nes &eacute;ramos...");
+	N("Unas orgullosas putas bisexuales.");
 
-	p("What a touching story. I think.");
+	p("Qu&eacute; historia m&aacute;s conmoverdora, supongo.");
 	
-	N("And of course, we wingman/wingwoman for each other.");
+	N("Y por supuesto, nos ayud&aacute;bamos el uno al otro, tanto en asuntos de la vida como del coraz&oacute;n.");
 
 	p(". . .");
 
@@ -390,7 +390,7 @@ function Tell_Me_A_Half_Truth_2(){
 
 function Finale_1(){
 	
-	N("And that's the last of the post-coming-out stories!");
+	N("&iexcl;Y esa era la &uacute;ltima historia de lo que pas&oacute; despu&eacutes de salir del armario!");
 
 	// HACK - Just clear dialogue & stuff.
 	Wait(1000);
@@ -405,36 +405,36 @@ function Finale_1(){
 
 	//////////////////////////
 
-	N("Dear player, I couldn't help but notice...");
+	N("Colegui, no pude evitar darme cuenta de que...");
 	if($.order_of_stories[0]=="truth"){
-		N("You went straight for the Truth first.");
+		N("Elegiste la Verdad primero.");
 	}else if($.order_of_stories[2]=="truth"){
-		N("You saved the Truth for last.");
+		N("Dejaste para el final la Verdad.");
 	}else if($.order_of_stories[0]=="lie"){
-		N("You wanted to hear the Lie first.");
+		N("Elegiste la Mentira primero.");
 	}else{
-		N("You saved the Lie for last.");
+		N("Dejaste para el final la Mentira.");
 	}
-	N("What does that say about you?...");
+	N("&iquest;Qu&eacute; dice esto de ti?...");
 	p(". . .");
 
-	p("You know... usually when a game gives you multiple endings, they don't do them ALL AT ONCE.");
-	N("Hah! You thought these were ENDINGS?");
+	p("Sabes una cosa... normalmente cuando un juego te da distintos finales, no los hace TODOS A LA VEZ.");
+	N("&iexcl;Ja! &iquest;Cre&iacute;as que eran FINALES?");
 
 	Choose({
-		"Let me guess... This Is Just The Beginning?": function(message){
+		"D&eacute;jame adivinar... &iquest;es solo el principio?": function(message){
 			p(message);
-			N("This is just the begi-- oh. Okay, yeah.");
+			N("Es solo el prin... Oh. Vale, s&iacute;.");
 			Finale_2();
 		},
-		"Well yeah. This game's over, right?": function(message){
+		"A ver, s&iacute;. Se ha acabado ya el juego, &iquest;no?": function(message){
 			p(message);
-			N("True... but the story, which is my story, my life, continues.");
+			N("Cierto... pero la historia, que es mi historia, mi vida, contin&uacute;a.");
 			Finale_2();
 		},
-		"oh god how long IS this damn game.": function(message){
+		"Madre m&iacute;a, &iquest;cu&aacute;nto DURA este maldito juego?": function(message){
 			p(message);
-			N("Don't worry. Your next choice is the very last one, I swear.");
+			N("No te preocupes. La siguiente elecci&oacute;n es la &uacute;ltima, te lo prometo.");
 			Finale_2();
 		}
 	});
@@ -446,9 +446,9 @@ function Finale_2(){
 	Show("nicky","coffee_nicky_packup_1");
 
 	N(". . .");
-	N("You know, if I could go back and relive all my other possible choices...");
-	N("... which in a sense, I did, by writing this game...");
-	N("... I wouldn't change a thing.");
+	N("La verdad es que si pudiera volver atr&aacute;s y revivir todas las otras opciones posibles...");
+	N("...que en parte lo he hecho creando este juego...");
+	N("...no cambiar&iacutea absolutamente nada.");
 
 	Show("nicky","coffee_nicky_packup_2");
 
@@ -459,21 +459,21 @@ function Finale_2(){
 	p("? ? ?");
 
 	if($.punched){
-		N("My texts getting read. Being forced to change schools. Getting punched in the face.");
+		N("Que leyeran mis mensajes. Que me obligaran a cambiar de instituto. Que me dieran un pu&ntilde;etazo en la cara.");
 	}else if($.father_oblivious==false){
-		N("My texts getting read. Being forced to change schools. All the verbal abuse.");
+		N("Que leyeran mis mensajes. Que me obligaran a cambiar de instituto. Que abusaran verbalmente de m&iacute;.");
 	}else if($.changing_schools){
-		N("My texts getting read. Being forced to change schools. The attempted 'gay rehab' with Claire.");	
+		N("Que leyeran mis mensajes. Que me obligaran a cambiar de instituto. Que intentaran que tuviera una 'terapia de reconversi&oacute;n' con Claire.");	
 	}else{
-		N("My texts getting read. No more after-school hours to myself. The attempted 'gay rehab' with Claire.");
+		N("Que leyeran mis mensajes. Que no tuviera horas libres desp&uacute;es del instituto. Que intentaran que tuviera una 'terapia de reconversi&oacute;n' con Claire.");
 	}
 
-	N("In a Stockholm Syndrome sort of sense... I'm grateful for it all.");
+	N("De alg&uacute;n modo, tengo una especie de s&iacute;ndrome de Estocolmo... Agradezco todo lo que pas&oacute;.");
 
 	Choose({
-		"what.": Finale_3,
-		"whaaat.": Finale_3,
-		"whaaaaaaaaaaaaaaat.": Finale_3
+		"Qu&eacute;.": Finale_3,
+		"Qu&eacute;&eacute;&eacute;&eacute;.": Finale_3,
+		"Qu&eacute;&eacute;&eacute;&eacute;&eacute;&eacute;&eacute;&eacute;&eacute;&eacute;&eacute;&eacute;&eacute;&eacute;&eacute;.": Finale_3
 	});
 
 }
@@ -485,28 +485,28 @@ function Finale_3(message){
 	PlaySound("sfx","laptop_pack");
 	Show("nicky","coffee_nicky_packup_3");
 
-	N("Yes, really!");
-	N("I wouldn't have been so motivated to forge my own life... if my previous life wasn't total utter shit.");
+	N("&iexcl;S&iacute;, en serio!");
+	N("No habr&iacute;a tenido ning&uacute;n tipo de motivaci&oacute;n para rehacer mi vida... si la anterior no hubiera sido una puta mierda.");
 
 	PlaySound("sfx","laptop_pack_2");
 	Show("nicky","coffee_nicky_packup_4");
 
-	N("Later in 2010, Dan Savage launched the It Gets Better&trade; campaign.");
-	N("My three stories... Lie, Truth, Half-Truth... they're all at least true about one thing.");
-	N("It does get better.");
+	N("En el los &uacute;ltimos meses de 2010, Dan Savage lanz&oacute; la campa&ntilde;a It Gets Better&trade;, 'todo mejora'.");
+	N("Las tres historias... la Mentira, la Verdad, y la Media Verdad... comparten una verdad com&uacute;n.");
+	N("Todo mejora.");
 
 	p(". . .");
 
-	N("And...");
-	N("At the end...");
-	N("Of this long, stupid, painful game...");
-	N("Where I played against people who should have been on my side...");
+	N("Y...");
+	N("Al final...");
+	N("De este largo, est&uacute;pido y penoso juego...");
+	N("En el que jugu&eacute; contra personas que deber&iacute;an haber estado en mi equipo...");
 
 	p(". . .");
 
-	N("I won.");
+	N("Gan&eacute;.");
 	N(". . .");
-	N("I won.");
+	N("Gan&eacute;.");
 
 	// HACK - Just clear dialogue & stuff.
 	Wait(1000);
@@ -537,14 +537,14 @@ function Finale_3(message){
 
 	PlaySound("sfx","step_2",{volume:0.25});
 	Choose({
-		"REPLAY?": Finale_4
+		"&iquest;JUGAR DE NUEVO?": Finale_4
 	});
 
 }
 function Finale_4(message){
 	
 	p(message);
-	N("Real life has no replays.");
+	N("La vida real no se puede jugar de nuevo.");
 
 	Wait(800);
 	queue(function(){
